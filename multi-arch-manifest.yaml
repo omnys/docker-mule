@@ -1,0 +1,11 @@
+image: omnys/mule:latest
+manifests:
+  - image: omnys/mule:amd64
+    platform:
+      architecture: amd64
+      os: linux
+  - image: omnys/mule:arm64v8
+    platform:
+      architecture: arm64
+      os: linux
+      variant: v8
