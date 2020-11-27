@@ -2,15 +2,15 @@ FROM alpine as builder
 
 WORKDIR  /tmp
 
-RUN wget https://repository-master.mulesoft.org/nexus/service/local/repositories/releases/content/org/mule/distributions/mule-standalone/4.2.1/mule-standalone-4.2.1.zip && \
-  unzip mule-standalone-4.2.1.zip
+RUN wget https://repository-master.mulesoft.org/nexus/service/local/repositories/releases/content/org/mule/distributions/mule-standalone/4.3.0-ea2/mule-standalone-4.3.0-ea2.zip && \
+  unzip mule-standalone-4.3.0-ea2.zip
 
 FROM openjdk:8u222-stretch
 
 # Define working directory.
 WORKDIR /opt/mule
 
-COPY --from=builder /tmp/mule-standalone-4.2.1 .
+COPY --from=builder /tmp/mule-standalone-4.3.0-ea2 .
 RUN useradd -m mule && \
   chown -R mule /opt/mule
 
